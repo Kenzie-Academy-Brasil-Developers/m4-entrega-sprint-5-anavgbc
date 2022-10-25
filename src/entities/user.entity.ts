@@ -6,8 +6,8 @@ import {
   UpdateDateColumn,
   OneToMany,
 } from "typeorm";
-import Schedules from "./schedules_user_properties.entity";
-import Schedules_users_properties from "./schedules_user_properties.entity";
+import Schedules from "./schedules.entity";
+import Schedules_users_properties from "./schedules.entity";
 import { Exclude } from "class-transformer";
 @Entity("users")
 class User {

@@ -12,7 +12,7 @@ import {
 } from "typeorm";
 import Addresses from "./addresses.entity";
 import Categories from "./category.entity";
-import Schedules from "./schedules_user_properties.entity";
+import Schedules from "./schedules.entity";
 
 @Entity("properties")
 class Properties {
