@@ -36,9 +36,7 @@ class User {
   @Exclude()
   password: string;
 
-  @OneToMany((type) => Schedules, (Schedules) => Schedules.user, {
-    eager: true,
-  })
+  @OneToMany((type) => Schedules, (Schedules) => Schedules.user)
   schedules: Schedules[];
 }
 

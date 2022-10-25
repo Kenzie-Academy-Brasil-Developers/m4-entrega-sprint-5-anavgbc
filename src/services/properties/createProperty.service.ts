@@ -80,9 +80,6 @@ const createPropertyService = async ({
 
   await propertyRepository.save(newProperty);
 
-  console.log(newProperty.category);
-  console.log(newProperty);
-
   return newProperty;
 };
 

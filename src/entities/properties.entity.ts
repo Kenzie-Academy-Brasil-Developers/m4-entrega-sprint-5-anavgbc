@@ -38,9 +38,7 @@ class Properties {
   @JoinColumn()
   address: Addresses;
 
-  @OneToMany((type) => Schedules, (schedules) => schedules.property, {
-    eager: true,
-  })
+  @OneToMany((type) => Schedules, (schedules) => schedules.property)
   schedules: Schedules[];
 
   @ManyToOne((type) => Categories)

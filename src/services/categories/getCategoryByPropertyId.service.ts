@@ -8,7 +8,12 @@ const getCategoryByPropertyIdService = async (id: string) => {
 
   //Lista todos imóveis que pertencem a uma categoria
 
-  const categorySelected = await categoryRepository.findOneBy({ id });
+  const categorySelected = await categoryRepository.findOne({
+    where: { id },
+    relations: {
+      properties: true,
+    },
+  });
 
   // console.log(categorySelected);
 
@@ -16,12 +21,7 @@ const getCategoryByPropertyIdService = async (id: string) => {
     throw new AppError("Category doesn't exist", 404);
   }
 
-  // console.log(categorySelected);
-
-  // console.log(categorySelected.properties);
-  // console.log(property, "aqui");
-
-  return categorySelected.properties;
+  return categorySelected;
 };
 
 export default getCategoryByPropertyIdService;

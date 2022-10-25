@@ -42,19 +42,23 @@ const createScheduleService = async (scheduleData: IScheduleRequest) => {
     },
   });
 
-  //   if (!user) {
-  //     throw new AppError("User doesnt exists");
-  //   }
+  const dayOfWeek = new Date(date).getDay();
 
-  const newSchedule = scheduleRepository.create({
+  if (dayOfWeek === 0 || dayOfWeek === 6) {
+    throw new AppError("Schedules are only avaliable during the week");
+  }
+
+  const newSchedule = {
     hour,
     date,
     property: property,
     user: user!,
-  });
+  };
 
-  await scheduleRepository.save(newSchedule);
+  const createdSchedule = scheduleRepository.create(newSchedule);
 
-  return newSchedule;
+  await scheduleRepository.save(createdSchedule);
+
+  return createdSchedule;
 };
 export default createScheduleService;
